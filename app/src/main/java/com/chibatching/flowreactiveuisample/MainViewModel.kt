@@ -32,7 +32,6 @@ class MainViewModel : ViewModel() {
                     .debounce(500)
                     .distinctUntilChanged()
                     .collect {
-                        println(it)
                         job?.cancel()
                         job = async(Dispatchers.Main) {
                             value = searchRepository(it.first, it.second)
